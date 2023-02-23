@@ -1,0 +1,28 @@
+---
+- name: install software
+  hosts: all
+  become: yes
+  tasks:
+    - name: Installation (Ubuntu)
+      apt: 
+        update_cache: yes
+        name:
+            - net-tools
+        state: latest
+      when: ansible_distribution == "Ubuntu"
+
+    - name: Installation (Centos)
+      dnf: 
+        update_cache: yes
+        name:
+            - net-tools
+        state: latest
+      when: ansible_distribution == "CentOS"
+
+    - name: Installation (fedora)
+      yum: 
+        update_cache: yes
+        name:
+            - net-tools
+        state: latest
+      when: ansible_distribution == "Fedora"

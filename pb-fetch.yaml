@@ -1,0 +1,10 @@
+---
+- name: FETCH (STORE) FILE/DIR FROM SERVER
+  hosts: all
+  become: yes
+  tasks:
+   - name: Fetch (Store) file
+     fetch:
+        src: /home/ansible/dir01/dir02/dir03/inventory.yaml
+        dest: /tmp/inventory-{{ inventory_hostname }}.yml
+        flat: yes

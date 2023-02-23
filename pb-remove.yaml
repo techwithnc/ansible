@@ -1,0 +1,23 @@
+---
+- name: remove software
+  hosts: all
+  become: yes
+  tasks:
+    - name: remove (Ubuntu)
+      apt: 
+        update_cache: yes
+        name:
+            - net-tools
+            - nmap
+            - stress
+        state: absent
+      when: ansible_distribution == "Ubuntu"
+
+    - name: remove (Centos)
+      yum: 
+        update_cache: yes
+        name:
+            - net-tools
+            - nmap
+        state: absent
+      when: ansible_distribution == "Amazon"

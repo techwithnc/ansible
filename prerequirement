@@ -1,0 +1,3 @@
+hostnamectl set-hostname xxx
+sudo echo "nyeinchan ALL=(ALL:ALL)  ALL" >> /etc/sudoers
+sudo echo "nyeinchan ALL=(ALL)  NOPASSWD: ALL" >> /etc/sudoers

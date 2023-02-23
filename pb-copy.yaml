@@ -1,0 +1,10 @@
+---
+- name: COPY FILE FROM LOCAL PC TO REMOTE SERVER
+  hosts: all
+  become: yes
+  tasks:
+  - name: COPY FROM LOCAL TO REMOTE
+    copy:
+      src: /home/nyeinchan/ansible/pb-copy.yml
+      dest: /home/nyeinchan/new-pb-copy.yml
+
