@@ -1,0 +1,10 @@
+---
+- name: UNARCHIVE
+  hosts: ubt01
+  become: yes
+  tasks:
+  - name: UNARCHIVE FILE ON REMOTE SERVER
+    unarchive:
+      src: /home/techwithnc/node_exporter.tar.gz
+      dest: /home/techwithnc/
+      remote_src: yes

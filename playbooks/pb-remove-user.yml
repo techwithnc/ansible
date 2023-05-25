@@ -1,0 +1,10 @@
+---
+- name: remove the user 'user01' with a specific uid and a primary group of 'gp01'
+  hosts: ubt01
+  become: yes
+  tasks:
+  - name : remove user.
+    ansible.builtin.user:
+      name: nyeinchan
+      state: absent
+      remove: yes

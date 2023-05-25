@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  vars_files:
+    - vars/api-key.yml
+  tasks:
+    - name: Echo api key.
+      ansible.builtin.shell: echo "$API_KEY"
+      environment:
+        API_KEY: "{{ my_api }}"
+      register: echo_result
+    - name: Show the result.
+      debug: var=echo_result.stdout

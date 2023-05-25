@@ -1,0 +1,10 @@
+---
+- name: Add the user 'user01' with a specific uid and a primary group of 'gp01'
+  hosts: ubt01
+  become: yes
+  tasks:
+  - name : Create user.
+    ansible.builtin.user:
+      name: user02
+      shell: /bin/false
+      create_home: false

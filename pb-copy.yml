@@ -1,0 +1,17 @@
+---
+- name: COPY FILE FROM LOCAL PC TO REMOTE SERVER
+  hosts: ubt01
+  vars_files:
+    - vars.yml
+  tasks:
+  - name: COPY FROM LOCAL TO REMOTE
+    ansible.builtin.copy:
+      src: /home/techwithnc/{{item}}
+      dest: /tmp/nc02-dir/
+      owner: techwithnc
+      group: techwithnc
+      mode: '0755'
+      remote_src: true
+    with_items: ["dir01", "dir02"]
+
+

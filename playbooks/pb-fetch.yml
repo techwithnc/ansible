@@ -1,0 +1,10 @@
+---
+- name: FETCH (STORE) FILE/DIR FROM SERVER to local
+  hosts: ubt01
+  become: yes
+  tasks:
+   - name: Fetch (Store) file
+     ansible.builtin.fetch:
+        src: /etc/hosts
+        dest: ~/dir01/hosts-{{ inventory_hostname }}.txt
+        flat: yes

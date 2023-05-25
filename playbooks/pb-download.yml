@@ -1,0 +1,10 @@
+---
+- name: DOWNLOAD FILE
+  hosts: ubt02
+  become: yes
+  tasks:
+   - name: Download file to remote server.
+     ansible.builtin.get_url:
+        url: https://github.com/prometheus/node_exporter/releases/download/v1.5.0/node_exporter-1.5.0.linux-amd64.tar.gz
+        dest: /home/techwithnc/node_exporter.tar.gz
+        checksum: sha256:af999fd31ab54ed3a34b9f0b10c28e9acee9ef5ac5a5d5edfdde85437db7acbb

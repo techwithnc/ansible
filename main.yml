@@ -1,0 +1,27 @@
+---
+- name: Ansible Hand-on Lab.
+  hosts: ubt01
+  become: true
+  handlers:
+    - name: restart apache2 service
+      ansible.builtin.service:
+        name: apache2
+        state: restarted
+  pre_tasks:
+    - name: APT update.
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+  tasks:
+    - name: Install Apache2.
+      ansible.builtin.apt:
+        pkg:
+          - apache2 
+        state: latest
+    - name: Copy config file.
+      ansible.builtin.copy:
+        src: /home/nyeinchan/dir01/index.html
+        dest: /var/www/html/
+      notify:
+        - restart apache2 service
+

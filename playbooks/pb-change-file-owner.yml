@@ -1,0 +1,11 @@
+---
+- name: CHANGE OWNERSHIP OF FILE/DIRECTORY
+  hosts: ubt01
+  become: yes
+  tasks:
+    - name: Change ownership of file and directory.
+      ansible.builtin.file:
+        path: /home/techwithnc/dir01
+        owner: user03
+        group: user03
+        mode: '0755'

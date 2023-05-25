@@ -1,0 +1,13 @@
+---
+- name: Install Software for ubuntu
+  hosts: ubt01 
+  become: yes
+  tasks:
+    - name: install net-tools and nmap
+      ansible.builtin.apt:
+        pkg:
+          - apt-transport-https
+          - software-properties-common
+          - wget
+        state: latest
+        update_cache: yes
