@@ -1,9 +1,0 @@
----
-- name: SET TIME ZONE TO Yangon
-  hosts: all
-  become: yes
-  tasks:
-  - name: Set timezone to Asia/Yangon
-    timezone:
-      name: Asia/Yangon
-

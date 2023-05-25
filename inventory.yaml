@@ -1,6 +1,0 @@
-#[ubt]
-#ubt01 ansible_host=172.104.190.228
-#ubt02 ansible_host=172.104.183.143
-
-[centos]
-centos01 ansible_host=139.177.185.33
